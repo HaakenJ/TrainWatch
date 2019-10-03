@@ -1,3 +1,17 @@
+/* TODO: 
+
+    - Add a sorting algorithm to the added_child and setInterval
+        functions so that the table stays sorted by the closest train time.
+
+    - Make the update and remove options functional.
+
+    - Make the page pretty.
+
+    - Add firebase.auth() so only authorized users can modify the page.
+
+    */
+
+
 $(document).ready(() => {
 
     let firebaseConfig = {
@@ -87,6 +101,7 @@ $(document).ready(() => {
         pushToDatabase(name, dest, freq, firstArrival);
     })
 
+    console.log('Current time is: ' + moment().format('hh:mm'));
     /* When a new child is added and when the page loads, add the data to 
         a new row. */
     database.ref().on('child_added', (snap) => {
@@ -95,11 +110,27 @@ $(document).ready(() => {
             freq = snap.val().freq,
             firstArrival = snap.val().firstArrival;
 
-        timeToNextTrain(firstArrival, freq)
-
         addNewRow(name, dest, freq,
             nextTrainArrival(firstArrival, freq),
             timeToNextTrain(firstArrival, freq));
     })
 
+    setInterval(() => {
+        $('#time-table').empty();
+        console.log('One minute has passed');
+        console.log('Current time is: ' + moment().format('hh:mm'));
+        database.ref().on('child_added', (snap) => {
+            let name = snap.val().name,
+                dest = snap.val().dest,
+                freq = snap.val().freq,
+                firstArrival = snap.val().firstArrival;
+    
+            addNewRow(name, dest, freq,
+                nextTrainArrival(firstArrival, freq),
+                timeToNextTrain(firstArrival, freq));
+                
+        }) 
+    }, 60 * 1000);
+
 })
+
