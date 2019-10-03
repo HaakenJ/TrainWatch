@@ -1,0 +1,32 @@
+.jumbotron {
+    color: #02709c;
+}
+
+#main-header {
+    font-weight: 500;
+}
+
+.display-box {
+    border: 1px solid #02709c;
+    border-radius: 4px;
+}
+
+.aur-box {
+    height: 530px;
+}
+
+.display-header {
+    color: #02709c;
+}
+
+[id*="submit"] {
+    background: none;
+    color: #02709c;
+    border: 1px solid #02709c;
+    border-radius: 8px; 
+}
+
+[id*="tab"] {
+    color: #02709c;
+    font-weight: 600;
+}

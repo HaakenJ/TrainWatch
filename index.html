@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Times</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+</head>
+
+
+
+<body>
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3" id="main-header">Train Times whoooo!!!</h1>
+            <p class="lead">Never be late for a train again!</p>
+        </div>
+    </div>
+
+
+    <!-- Train Schedule -->
+    <div class="container">
+        <div class="row mb-5">
+            <div class="display-box col-12 mx-auto">
+                <h4 class="display-header mt-2">Current Train Schedule</h4>
+                <table class="table table-hover table-light">
+                    <thead>
+                        <tr>
+                            <th scope="col">Train</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Frequency (min)</th>
+                            <th scope="col">Next Arrival</th>
+                            <th scope="col">Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody id="time-table">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="display-box aur-box col-12 mx-auto">
+                <ul class="nav nav-tabs mt-2 mb-3" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="add-tab" data-toggle="tab" href="#add" role="tab"
+                            aria-controls="add" aria-selected="true">Add</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="update-tab" data-toggle="tab" href="#update" role="tab"
+                            aria-controls="update" aria-selected="false">Update</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="remove-tab" data-toggle="tab" href="#remove" role="tab"
+                            aria-controls="remove" aria-selected="false">Remove</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="add-tab">
+                        <h4 class="display-header mb-4">Add a Train</h4>
+                        <form>
+                            <div class="form-group">
+                                <label for="train-name">Train Name</label>
+                                <input type="text" class="form-control" id="train-name" placeholder="TrainyMcTrainface">
+                            </div>
+                            <div class="form-group">
+                                <label for="destination">Destination</label>
+                                <input type="text" class="form-control" id="destination" placeholder="Narnia">
+                            </div>
+                            <div class="form-group">
+                                <label for="first-train">First Train Time (HH:mm - military time)</label>
+                                <input type="text" class="form-control" id="first-train" placeholder="e.g. 06:00">
+                            </div>
+                            <div class="form-group">
+                                <label for="frequency">Frequency</label>
+                                <input type="text" class="form-control" id="frequency" placeholder="e.g. 25">
+                            </div>
+                            <button class="btn mb-3" id="add-submit">Add</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="update" role="tabpanel" aria-labelledby="update-tab">
+                        <h4 class="display-header mb-4">Update a Train</h4>
+                        <form>
+                            <div class="form-group">
+                                <label for="train-name">Train to Update</label>
+                                <input type="text" class="form-control" id="train-name" placeholder="TrainyMcTrainface">
+                            </div>
+                            <div class="form-group">
+                                <label for="destination">Destination</label>
+                                <input type="text" class="form-control" id="destination" placeholder="Narnia">
+                            </div>
+                            <div class="form-group">
+                                <label for="first-train">First Train Time (HH:mm - military time)</label>
+                                <input type="text" class="form-control" id="first-train" placeholder="e.g. 06:00">
+                            </div>
+                            <div class="form-group">
+                                <label for="frequency">Frequency</label>
+                                <input type="text" class="form-control" id="frequency" placeholder="e.g. 25">
+                            </div>
+                            <button class="btn mb-3" id="update-submit">Update</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="remove" role="tabpanel" aria-labelledby="remove-tab">
+                        <h4 class="display-header mb-4">Remove a Train</h4>
+                        <form>
+                            <div class="form-group">
+                                <label for="train-name">Name of Train to Remove</label>
+                                <input type="text" class="form-control" id="train-name" placeholder="TrainyMcTrainface">
+                            </div>
+                            <button class="btn mb-3" id="remove-submit">Remove</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- Firebase Core -->
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+    <!-- Firebase Realtime Database -->
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+    <!-- Moment js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- Application code -->
+    <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>
