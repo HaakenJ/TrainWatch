@@ -19,7 +19,8 @@ $(document).ready(() => {
         firstTrainInput = $('#first-train'),
         freqInput = $('#frequency');
 
-    function addnewRow(name, dest, freq, nextArriv, minAway) {
+    // Add a new row to the time-table with the parameters as data.
+    function addNewRow(name, dest, freq, nextArriv, minAway) {
         let newRow = $('<tr>'),
             nameCol = $('<td>'),
             destCol = $('<td>'),
@@ -39,6 +40,7 @@ $(document).ready(() => {
         $('#time-table').append(newRow);
     }
 
+    // Pushes parameters to database.
     function pushToDatabase(name, dest, freq, firstArrival) {
         database.ref().push({
             name: name,
@@ -48,6 +50,32 @@ $(document).ready(() => {
         });
     }
 
+    // Return the time to the next train.
+    function timeToNextTrain(firstArrival, freq) {
+        let now = moment(),
+            firstTrain = moment(firstArrival, 'HH:mm'),
+            firstTrainConverted = moment(firstTrain, 'HH:mm').subtract(1, 'years'),
+            diffTime = moment().diff(moment(firstTrainConverted), 'minutes'),
+            tRemainder = diffTime % freq,
+            tMinutesTillTrain = freq - tRemainder;
+
+        return tMinutesTillTrain;
+    }
+
+    // Return the time of the next train.
+    function nextTrainArrival(firstArrival, freq) {
+        let now = moment(),
+            firstTrain = moment(firstArrival, 'HH:mm'),
+            firstTrainConverted = moment(firstTrain, 'HH:mm').subtract(1, 'years'),
+            diffTime = moment().diff(moment(firstTrainConverted), 'minutes'),
+            tRemainder = diffTime % freq,
+            tMinutesTillTrain = freq - tRemainder,
+            nextTrain = moment().add(tMinutesTillTrain, 'minutes');
+
+        return moment(nextTrain).format('hh:mm');
+    }
+
+    // Add the values in the add a train input fields to the database.
     addTrainSubmit.on('click', (event) => {
         event.preventDefault();
 
@@ -59,13 +87,19 @@ $(document).ready(() => {
         pushToDatabase(name, dest, freq, firstArrival);
     })
 
+    /* When a new child is added and when the page loads, add the data to 
+        a new row. */
     database.ref().on('child_added', (snap) => {
         let name = snap.val().name,
             dest = snap.val().dest,
             freq = snap.val().freq,
             firstArrival = snap.val().firstArrival;
 
-        addnewRow(name, dest, freq);
+        timeToNextTrain(firstArrival, freq)
+
+        addNewRow(name, dest, freq,
+            nextTrainArrival(firstArrival, freq),
+            timeToNextTrain(firstArrival, freq));
     })
 
 })
