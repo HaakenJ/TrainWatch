@@ -1,12 +1,12 @@
-let firebaseConfig = {
-    apiKey: config.MY_KEY,
+const firebaseConfig = {
+    apiKey: "AIzaSyC-Ef1JjNmZMxZFoInkQA2N_b0kr1CV3Ww",
     authDomain: "train-timetable-2ccdc.firebaseapp.com",
     databaseURL: "https://train-timetable-2ccdc.firebaseio.com",
     projectId: "train-timetable-2ccdc",
-    storageBucket: "",
+    storageBucket: "train-timetable-2ccdc.appspot.com",
     messagingSenderId: "199034979986",
     appId: "1:199034979986:web:017f52912acdcc93b1884b"
-};
+  };
 
 firebase.initializeApp(firebaseConfig);
 

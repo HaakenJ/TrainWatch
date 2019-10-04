@@ -9,6 +9,9 @@
 
     - Add firebase.auth() so only authorized users can modify the page.
 
+    - Add class of logged-in and logged-out to whatever you want to show 
+        only when someone is logged in or out.
+
     */
 
 
