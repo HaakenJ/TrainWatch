@@ -11,3 +11,11 @@ function timeValidation(str) {
     console.log(min)
     return reg.test(str) && str.length == 5 && parseInt(hour) < 24 && parseInt(min) < 60;
 }
+
+function freqValidation(str) {
+    if (parseInt(str) && str >= 1 && str <= 60) {
+        return true;
+    } else {
+        return false;
+    }
+}
