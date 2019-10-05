@@ -3,24 +3,23 @@ const auth = firebase.auth(),
     provider = new firebase.auth.GoogleAuthProvider(),
     ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-    ui.start('#firebaseui-auth-container', {
-        signInOptions: firebase.auth.GoogleAuthProvider.PROVIDER_ID
-      });
+ui.start('#firebaseui-auth-container', {
+    signInOptions: firebase.auth.GoogleAuthProvider.PROVIDER_ID
+});
 
 
-$(document).ready(() => {
-    auth.onAuthStateChanged((user) => {
-        if (user) {
-            $('.aur-box').show();
-            $('.login-box').hide();
-            $('#sign-out-submit').show();
-            console.log('logged in.');
-        } else {
-            $('.aur-box').hide();
-            $('#sign-out-submit').hide();
-            console.log('Not logged in.');
-        }
-    })
+
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        $('.aur-box').show();
+        $('.login-box').hide();
+        $('#sign-out-submit').show();
+        console.log('logged in.');
+    } else {
+        $('.aur-box').hide();
+        $('#sign-out-submit').hide();
+        console.log('Not logged in.');
+    }
 })
 
 $('#login-submit').on('click', (event) => {
@@ -35,11 +34,11 @@ $('#login-submit').on('click', (event) => {
 
 $('#sign-out-submit').on('click', (event) => {
     event.preventDefault();
-    firebase.auth().signOut().then(function() {
+    firebase.auth().signOut().then(function () {
         // Sign-out successful.
         console.log('sign out successful.')
-      }, function(error) {
+    }, function (error) {
         // An error happened.
         console.log(error);
-      });
+    });
 })
