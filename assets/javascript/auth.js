@@ -12,9 +12,12 @@ $(document).ready(() => {
     auth.onAuthStateChanged((user) => {
         if (user) {
             $('.aur-box').show();
+            $('.login-box').hide();
+            $('#sign-out-submit').show();
             console.log('logged in.');
         } else {
             $('.aur-box').hide();
+            $('#sign-out-submit').hide();
             console.log('Not logged in.');
         }
     })
@@ -28,4 +31,15 @@ $('#login-submit').on('click', (event) => {
     }).catch(function (error) {
         console.log(error);
     });
+})
+
+$('#sign-out-submit').on('click', (event) => {
+    event.preventDefault();
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+        console.log('sign out successful.')
+      }, function(error) {
+        // An error happened.
+        console.log(error);
+      });
 })
