@@ -17,6 +17,7 @@ auth.onAuthStateChanged((user) => {
         console.log('logged in.');
     } else {
         $('.aur-box').hide();
+        $('.login-box').show();
         $('#sign-out-submit').hide();
         console.log('Not logged in.');
     }
