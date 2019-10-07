@@ -1,11 +1,11 @@
 const auth = firebase.auth(),
     user = firebase.auth().currentUser,
-    provider = new firebase.auth.GoogleAuthProvider(),
-    ui = new firebaseui.auth.AuthUI(firebase.auth());
+    provider = new firebase.auth.GoogleAuthProvider();
+//     ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-ui.start('#firebaseui-auth-container', {
-    signInOptions: firebase.auth.GoogleAuthProvider.PROVIDER_ID
-});
+// ui.start('#firebaseui-auth-container', {
+//     signInOptions: firebase.auth.GoogleAuthProvider.PROVIDER_ID
+// });
 
 
 
@@ -13,28 +13,21 @@ auth.onAuthStateChanged((user) => {
     if (user) {
         $('.aur-box').show();
         $('.login-box').hide();
-        $('#sign-out-submit').show();
+        $('#current-user').show();
         console.log('logged in.');
 
-        let name = user.displayName,
-            photoUrl = user.photoUrl,
-            userPhoto = $('<img>');
-        console.log(photoUrl);
-        userPhoto.attr('src', photoUrl);
-
+        let name = user.displayName;
         $('#username').text(name);
-        $('#user-photo').append(userPhoto);
     } else {
         $('.aur-box').hide();
         $('.login-box').show();
-        // $('#sign-out-submit').hide();
+        $('#current-user').hide();
         console.log('Not logged in.');
     }
 })
 
 $('#login-submit').on('click', (event) => {
     event.preventDefault();
-    console.log('login has been clicked.');
     firebase.auth().signInWithPopup(provider).then(function (result) {
         console.log(result);
     }).catch(function (error) {
