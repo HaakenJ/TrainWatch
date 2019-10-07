@@ -19,10 +19,10 @@ auth.onAuthStateChanged((user) => {
         let name = user.displayName,
             photoUrl = user.photoUrl,
             userPhoto = $('<img>');
-        userPhoto.attr('src', photoUrl);
+        userPhoto.attr('src',   photoUrl);
 
         $('#username').text(name);
-        $('#user-photo').append(userPhoto);
+        $('#user-photo').text(userPhoto);
     } else {
         $('.aur-box').hide();
         $('.login-box').show();

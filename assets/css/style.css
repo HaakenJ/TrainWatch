@@ -1,5 +1,11 @@
+body {
+    color: #121214;
+    background-color: #FFFFFF;;
+}
+
 .jumbotron {
-    color: #02709c;
+    color: #272B27;
+    background-color: #327599;
 }
 
 #main-header {
@@ -7,7 +13,7 @@
 }
 
 .display-box {
-    border: 1px solid #02709c;
+    border: 1px solid #327599;
     border-radius: 4px;
 }
 
@@ -16,18 +22,28 @@
 }
 
 .display-header {
-    color: #02709c;
+    color: #327599;
+}
+
+th {
+    color: #327599;
+}
+
+#username {
+    position: absolute;
+    top: 12px;
+    right: 120px;
 }
 
 [id*="submit"] {
     background: none;
-    color: #02709c;
-    border: 1px solid #02709c;
+    color: #272B27;
+    border: 1px solid #327599;
     border-radius: 8px; 
 }
 
 [id*="tab"] {
-    color: #02709c;
+    color: #272B27;
     font-weight: 600;
 }
 
