@@ -29,10 +29,12 @@ th {
     color: #327599;
 }
 
-#username {
+#username,
+#user-photo {
     position: absolute;
     top: 12px;
     right: 120px;
+    color: #121214;
 }
 
 [id*="submit"] {

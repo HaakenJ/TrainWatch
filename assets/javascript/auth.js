@@ -22,7 +22,7 @@ auth.onAuthStateChanged((user) => {
         userPhoto.attr('src',   photoUrl);
 
         $('#username').text(name);
-        $('#user-photo').text(userPhoto);
+        $('#user-photo').append(userPhoto);
     } else {
         $('.aur-box').hide();
         $('.login-box').show();
