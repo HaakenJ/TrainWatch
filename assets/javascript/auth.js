@@ -15,6 +15,14 @@ auth.onAuthStateChanged((user) => {
         $('.login-box').hide();
         $('#sign-out-submit').show();
         console.log('logged in.');
+
+        let name = user.displayName,
+            photoUrl = user.photoUrl,
+            userPhoto = $('<img>');
+        userPhoto.attr('src', photoUrl);
+
+        $('#username').text(name);
+        $('#user-photo').append(userPhoto);
     } else {
         $('.aur-box').hide();
         $('.login-box').show();
