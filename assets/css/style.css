@@ -1,15 +1,17 @@
 body {
     color: #121214;
-    background-color: #FFFFFF;;
+    background-color: rgba(245, 245, 245, 0.904);;
 }
 
 .jumbotron {
     color: #272B27;
-    background-color: #327599;
+    background-color: #63aed6;
+    font-family: 'Fjalla One', sans-serif;
 }
 
 #main-header {
     font-weight: 500;
+    font-size: 5em;
 }
 
 .display-box {

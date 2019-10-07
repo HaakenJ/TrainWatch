@@ -11,6 +11,9 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Firebase UI -->
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -26,8 +29,8 @@
     <!-- Jumbotron -->
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-3" id="main-header">Train Times whoooo!!!</h1>
-            <p class="lead">Never be late for a train again!</p>
+            <h1 id="main-header">Train Watch</h1>
+            <p class="lead">Keep an eye on all the trains in your schedule</p>
         </div>
         <h4 class="display-header" id="username"></h4>
         <div id="user-photo"></div>
@@ -40,7 +43,7 @@
         <div class="row mb-5">
             <div class="display-box col-12 mx-auto">
                 <h4 class="display-header mt-2">Current Train Schedule</h4>
-                <table class="table table-hover">
+                <table class="table table-hover table-responsive">
                     <thead>
                         <tr>
                             <th scope="col">Train</th>

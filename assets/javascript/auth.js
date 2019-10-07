@@ -19,14 +19,15 @@ auth.onAuthStateChanged((user) => {
         let name = user.displayName,
             photoUrl = user.photoUrl,
             userPhoto = $('<img>');
-        userPhoto.attr('src',   photoUrl);
+        console.log(photoUrl);
+        userPhoto.attr('src', photoUrl);
 
         $('#username').text(name);
         $('#user-photo').append(userPhoto);
     } else {
         $('.aur-box').hide();
         $('.login-box').show();
-        $('#sign-out-submit').hide();
+        // $('#sign-out-submit').hide();
         console.log('Not logged in.');
     }
 })
