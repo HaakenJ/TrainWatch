@@ -1,11 +1,6 @@
 const auth = firebase.auth(),
     user = firebase.auth().currentUser,
     provider = new firebase.auth.GoogleAuthProvider();
-//     ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-// ui.start('#firebaseui-auth-container', {
-//     signInOptions: firebase.auth.GoogleAuthProvider.PROVIDER_ID
-// });
 
 
 
