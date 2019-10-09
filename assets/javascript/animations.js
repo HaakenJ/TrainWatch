@@ -1,4 +1,4 @@
-anime({
+var morph1 = anime({
     targets: '.polymorph#morph1',
     points: [{
             value: '1920,1080 0,1080 0,0 432.59,0 701,968'
@@ -11,7 +11,7 @@ anime({
     duration: 2000,
     loop: false
 });
-anime({
+var morph2 = anime({
     targets: '.polymorph#morph2',
     points: [{
             value: '1920,1080 0,1080 0,1080 1296,900 1920,1080'

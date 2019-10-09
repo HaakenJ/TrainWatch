@@ -6,8 +6,8 @@ const auth = firebase.auth(),
 
 auth.onAuthStateChanged((user) => {
     if (user) {
+        $('#login-page').hide();
         $('.main-content').show();
-        $('.polymorph').hide();
         $('.aur-box').show();
         $('.login-box').hide();
         $('#current-user').show();
@@ -17,7 +17,7 @@ auth.onAuthStateChanged((user) => {
         $('#username').text(name);
     } else {
         $('.main-content').hide();
-        $('.polymorph').show();
+        $('#login-page').show();
         $('.aur-box').hide();
         $('.login-box').show();
         $('#current-user').hide();

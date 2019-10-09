@@ -94,3 +94,7 @@ th {
     position: relative;
     left: -1000;
 }
+
+#login-page {
+    display: none;
+}
