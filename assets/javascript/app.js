@@ -65,14 +65,15 @@ $(document).ready(() => {
             firstArrival = $('#first-train-update').val();
 
         updateInDb(name, dest, freq, firstArrival);
+        updateRow(name, dest, freq,
+            nextTrainArrival(firstArrival, freq),
+            timeToNextTrain(firstArrival, freq));
         $('input').val('');
     })
 
-    /* Update the table anytime a train is added, removed, or updated.
-        called in main scope of .ready() function so that table is populated
-        on page load. */
+    /* Update the table anytime a train is added. Called in main scope of 
+        .ready() function so that table is populated on page load. */
     addOrUpdateFromDb('child_added', addNewRow);
-    addOrUpdateFromDb('child_changed', updateRow);
 
 
     setInterval(() => {

@@ -71,7 +71,7 @@ function addNewRow(name, dest, freq, nextArriv, minAway) {
     nextArrivCol.text(nextArriv);
     minAwayCol.text(minAway);
 
-    newRow.attr('id', name);
+    newRow.attr('id', name.replace(/ /g,'-'));
     newRow.append(nameCol).append(destCol).append(freqCol);
     newRow.append(nextArrivCol).append(minAwayCol);
 
@@ -79,7 +79,7 @@ function addNewRow(name, dest, freq, nextArriv, minAway) {
 }
 
 function updateRow(name, dest, freq, nextArriv, minAway) {
-    let rowToUpdate = $('#' + name),
+    let rowToUpdate = $('#' + name.replace(/ /g,'-')),
         nameCol = $('<td>'),
         destCol = $('<td>'),
         freqCol = $('<td>'),
@@ -96,6 +96,8 @@ function updateRow(name, dest, freq, nextArriv, minAway) {
 
     rowToUpdate.append(nameCol).append(destCol).append(freqCol);
     rowToUpdate.append(nextArrivCol).append(minAwayCol);
+    console.log('Row updated.');
+    console.log(JSON.stringify(rowToUpdate));
 
     $('#time-table').append(rowToUpdate);
 }
