@@ -31,12 +31,15 @@ th {
     color: #327599;
 }
 
-#username,
-#user-photo {
+#username {
     position: absolute;
     top: 12px;
     right: 120px;
     color: #121214;
+}
+
+.table {
+    width: 70%
 }
 
 [id*="submit"] {
