@@ -2,7 +2,11 @@ const auth = firebase.auth(),
     user = firebase.auth().currentUser,
     provider = new firebase.auth.GoogleAuthProvider();
 
-
+$(document).ready(() => {
+    if (user) {
+        $('#login-page').hide();
+    }
+})
 
 auth.onAuthStateChanged((user) => {
     if (user) {
@@ -11,6 +15,7 @@ auth.onAuthStateChanged((user) => {
         $('.aur-box').show();
         $('.login-box').hide();
         $('#current-user').show();
+        $('#sign-out-submit').show();
         console.log('logged in.');
 
         let name = user.displayName;
@@ -21,6 +26,7 @@ auth.onAuthStateChanged((user) => {
         $('.aur-box').hide();
         $('.login-box').show();
         $('#current-user').hide();
+        $('#sign-out-submit').hide();
         console.log('Not logged in.');
     }
 })
