@@ -1,3 +1,6 @@
+const auth = firebase.auth(),
+    user = firebase.auth().curentUser;
+
 auth.onAuthStateChanged((user) => {
     if (!user) {
         var morph1 = anime({
