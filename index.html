@@ -26,120 +26,135 @@
 
 
 <body>
-    <!-- Jumbotron -->
-    <div class="jumbotron">
-        <div class="container">
-            <h1 id="main-header">Train Watch</h1>
-            <p class="lead">Keep an eye on all the trains in your schedule</p>
-        </div>
-        <div id="current-user">
-            <h4 class="display-header" id="username"></h4>
-            <button class="btn" id="sign-out-submit">Sign Out</button>
-        </div>
+
+    <svg viewBox="0 0 1920 1080" id="svg-one">
+        <polygon class="polymorph" id="morph1" points="1920,1080 0,1080 0,0 432.59,0 1920,0 	" />
+    </svg>
+    <svg viewBox="0 0 1920 1080" id="svg-two">
+        <polygon class="polymorph" id="morph2" points="1920,2160 0,2160 0,2160 1254,2160 1920,2160 	" />
+    </svg>
+
+    <div id="login-box">
+        <h1>Welcome to Train Watch!</h1>
+        <h4>Please login to contribute</h4>
+        <button class="btn m-3" id="login-submit">Login</button>
     </div>
 
 
-    <!-- Train Schedule -->
-    <div class="container">
-        <div class="row mb-5">
-            <div class="display-box col-12 mx-auto text-center">
-                <h4 class="display-header mt-2">Current Train Schedule</h4>
-                <table class="table table-hover table-responsive mx-auto">
-                    <thead>
-                        <tr>
-                            <th scope="col">Train</th>
-                            <th scope="col">Destination</th>
-                            <th scope="col">Frequency (min)</th>
-                            <th scope="col">Next Arrival</th>
-                            <th scope="col">Minutes Away</th>
-                        </tr>
-                    </thead>
-                    <tbody id="time-table">
-                    </tbody>
-                </table>
+
+    <div class="main-content">
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1 id="main-header">Train Watch</h1>
+                <p class="lead">Keep an eye on all the trains in your schedule</p>
+            </div>
+            <div id="current-user">
+                <h4 class="display-header" id="username"></h4>
+                <button class="btn" id="sign-out-submit">Sign Out</button>
             </div>
         </div>
-        <div class="row mb-5">
-            <div class="display-box aur-box col-12 mx-auto">
-                <ul class="nav nav-tabs mt-2 mb-3" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="add-tab" data-toggle="tab" href="#add" role="tab"
-                            aria-controls="add" aria-selected="true">Add</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="update-tab" data-toggle="tab" href="#update" role="tab"
-                            aria-controls="update" aria-selected="false">Update</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="remove-tab" data-toggle="tab" href="#remove" role="tab"
-                            aria-controls="remove" aria-selected="false">Remove</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="add-tab">
-                        <h4 class="display-header mb-4">Add a Train</h4>
-                        <form>
-                            <div class="form-group">
-                                <label for="train-name">Train Name</label>
-                                <input type="text" class="form-control" id="train-name" placeholder="TrainyMcTrainface">
-                            </div>
-                            <div class="form-group">
-                                <label for="destination">Destination</label>
-                                <input type="text" class="form-control" id="destination" placeholder="Narnia">
-                            </div>
-                            <div class="form-group">
-                                <label for="first-train">First Train Time (HH:mm - military time)</label>
-                                <input type="text" class="form-control" id="first-train" placeholder="e.g. 06:00">
-                            </div>
-                            <div class="form-group">
-                                <label for="frequency">Frequency</label>
-                                <input type="text" class="form-control" id="frequency" placeholder="e.g. 25">
-                            </div>
-                            <button class="btn mb-3" id="add-submit">Add</button>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade" id="update" role="tabpanel" aria-labelledby="update-tab">
-                        <h4 class="display-header mb-4">Update a Train - Please fill all fields</h4>
-                        <form>
-                            <div class="form-group">
-                                <label for="train-name">Train to Update</label>
-                                <input type="text" class="form-control" id="train-name-update"
-                                    placeholder="TrainyMcTrainface">
-                            </div>
-                            <div class="form-group">
-                                <label for="destination">Destination</label>
-                                <input type="text" class="form-control" id="destination-update" placeholder="Narnia">
-                            </div>
-                            <div class="form-group">
-                                <label for="first-train">First Train Time (HH:mm - military time)</label>
-                                <input type="text" class="form-control" id="first-train-update"
-                                    placeholder="e.g. 06:00">
-                            </div>
-                            <div class="form-group">
-                                <label for="frequency">Frequency</label>
-                                <input type="text" class="form-control" id="frequency-update" placeholder="e.g. 25">
-                            </div>
-                            <button class="btn mb-3" id="update-submit">Update</button>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade" id="remove" role="tabpanel" aria-labelledby="remove-tab">
-                        <h4 class="display-header mb-4">Remove a Train</h4>
-                        <form>
-                            <div class="form-group">
-                                <label for="train-name">Name of Train to Remove</label>
-                                <input type="text" class="form-control" id="train-name-remove"
-                                    placeholder="TrainyMcTrainface">
-                            </div>
-                            <button class="btn mb-3" id="remove-submit">Remove</button>
-                        </form>
-                    </div>
+
+
+        <!-- Train Schedule -->
+        <div class="container">
+            <div class="row mb-5">
+                <div class="display-box col-12 mx-auto text-center">
+                    <h4 class="display-header mt-2">Current Train Schedule</h4>
+                    <table class="table table-hover table-responsive mx-auto">
+                        <thead>
+                            <tr>
+                                <th scope="col">Train</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Frequency (min)</th>
+                                <th scope="col">Next Arrival</th>
+                                <th scope="col">Minutes Away</th>
+                            </tr>
+                        </thead>
+                        <tbody id="time-table">
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="display-box login-box col-12 mx-auto">
-                <div class="col-6 mx-auto text-center">
-                    <h4 class="display-header">Please login to contribute</h4>
-                    <button class="btn m-3" id="login-submit">Login</button>
+            <div class="row mb-5">
+                <div class="display-box aur-box col-12 mx-auto">
+                    <ul class="nav nav-tabs mt-2 mb-3" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="add-tab" data-toggle="tab" href="#add" role="tab"
+                                aria-controls="add" aria-selected="true">Add</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="update-tab" data-toggle="tab" href="#update" role="tab"
+                                aria-controls="update" aria-selected="false">Update</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="remove-tab" data-toggle="tab" href="#remove" role="tab"
+                                aria-controls="remove" aria-selected="false">Remove</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="add-tab">
+                            <h4 class="display-header mb-4">Add a Train</h4>
+                            <form>
+                                <div class="form-group">
+                                    <label for="train-name">Train Name</label>
+                                    <input type="text" class="form-control" id="train-name"
+                                        placeholder="TrainyMcTrainface">
+                                </div>
+                                <div class="form-group">
+                                    <label for="destination">Destination</label>
+                                    <input type="text" class="form-control" id="destination" placeholder="Narnia">
+                                </div>
+                                <div class="form-group">
+                                    <label for="first-train">First Train Time (HH:mm - military time)</label>
+                                    <input type="text" class="form-control" id="first-train" placeholder="e.g. 06:00">
+                                </div>
+                                <div class="form-group">
+                                    <label for="frequency">Frequency</label>
+                                    <input type="text" class="form-control" id="frequency" placeholder="e.g. 25">
+                                </div>
+                                <button class="btn mb-3" id="add-submit">Add</button>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="update" role="tabpanel" aria-labelledby="update-tab">
+                            <h4 class="display-header mb-4">Update a Train - Please fill all fields</h4>
+                            <form>
+                                <div class="form-group">
+                                    <label for="train-name">Train to Update</label>
+                                    <input type="text" class="form-control" id="train-name-update"
+                                        placeholder="TrainyMcTrainface">
+                                </div>
+                                <div class="form-group">
+                                    <label for="destination">Destination</label>
+                                    <input type="text" class="form-control" id="destination-update"
+                                        placeholder="Narnia">
+                                </div>
+                                <div class="form-group">
+                                    <label for="first-train">First Train Time (HH:mm - military time)</label>
+                                    <input type="text" class="form-control" id="first-train-update"
+                                        placeholder="e.g. 06:00">
+                                </div>
+                                <div class="form-group">
+                                    <label for="frequency">Frequency</label>
+                                    <input type="text" class="form-control" id="frequency-update" placeholder="e.g. 25">
+                                </div>
+                                <button class="btn mb-3" id="update-submit">Update</button>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="remove" role="tabpanel" aria-labelledby="remove-tab">
+                            <h4 class="display-header mb-4">Remove a Train</h4>
+                            <form>
+                                <div class="form-group">
+                                    <label for="train-name">Name of Train to Remove</label>
+                                    <input type="text" class="form-control" id="train-name-remove"
+                                        placeholder="TrainyMcTrainface">
+                                </div>
+                                <button class="btn mb-3" id="remove-submit">Remove</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -168,6 +183,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="config.js"></script>
+    <!-- anime.js -->
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+    <!-- animations script -->
+    <script src="assets/javascript/animations.js"></script>
     <!-- Table and Database Functions -->
     <script src="assets/javascript/functions.js"></script>
     <!-- Authentication Code -->

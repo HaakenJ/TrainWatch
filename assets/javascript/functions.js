@@ -1,5 +1,5 @@
 const firebaseConfig = {
-    apiKey: MY_KEY,
+    apiKey: 'AIzaSyC-Ef1JjNmZMxZFoInkQA2N_b0kr1CV3Ww',
     authDomain: "train-timetable-2ccdc.firebaseapp.com",
     databaseURL: "https://train-timetable-2ccdc.firebaseio.com",
     projectId: "train-timetable-2ccdc",

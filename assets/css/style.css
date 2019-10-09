@@ -1,11 +1,12 @@
 body {
     color: #121214;
-    background-color: rgba(245, 245, 245, 0.904);;
+    background-color: rgba(245, 245, 245, 0.904);
+    overflow-x: hidden; 
 }
 
 .jumbotron {
     color: #272B27;
-    background-color: #63aed6;
+    background-color: #29ABE2;
     font-family: 'Fjalla One', sans-serif;
 }
 
@@ -15,7 +16,7 @@ body {
 }
 
 .display-box {
-    border: 1px solid #327599;
+    border: 1px solid #29ABE2;
     border-radius: 4px;
 }
 
@@ -28,7 +29,7 @@ body {
 }
 
 th {
-    color: #327599;
+    color: #29ABE2;
 }
 
 #username {
@@ -42,10 +43,27 @@ th {
     width: 70%
 }
 
+#login-box {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    text-align: center;
+    color: #29ABE2
+}
+
+#login-submit {
+
+    width: 300px;
+    height: 55px;
+    font-size: 1.5em;
+    color: #29ABE2;
+    border: 2px solid #29ABE2
+}
+
 [id*="submit"] {
     background: none;
     color: #272B27;
-    border: 1px solid #327599;
+    border: 1px solid #29ABE2;
     border-radius: 8px; 
 }
 
@@ -55,7 +73,24 @@ th {
 }
 
 #sign-out-submit {
+    display: none;
     position: absolute;
     top: 10px;
     right: 20px;
+}
+
+#morph1 {
+    fill: #29ABE2;
+}
+#morph2 {
+    fill: #034242;
+}
+#svg-two {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#welcome {
+    position: relative;
+    left: -1000;
 }
