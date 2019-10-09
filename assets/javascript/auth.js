@@ -23,6 +23,8 @@ auth.onAuthStateChanged((user) => {
     } else {
         $('.main-content').hide();
         $('#login-page').show();
+        $('#svg-one').attr('points', '1920,1080 0,1080 0,0 432.59,0 1920,0');
+        $('#svg-two').attr('points', '1920,2160 0,2160 0,2160 1254,2160 1920,2160');
         $('.aur-box').hide();
         $('.login-box').show();
         $('#current-user').hide();

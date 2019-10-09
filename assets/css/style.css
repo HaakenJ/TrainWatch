@@ -90,16 +90,21 @@ th {
 #morph2 {
     fill: #034242;
 }
+/* #svg-one {
+    height: 1080px;
+} */
 #svg-two {
     position: absolute;
     top: 0;
     left: 0;
+    /* height: 1080px; */
 }
 #welcome {
     position: relative;
     left: -1000;
 }
 
+/* Useful for testing while in local.
 /* #login-page {
     display: none;
 } */
