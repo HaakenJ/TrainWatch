@@ -1,7 +1,7 @@
 body {
     color: #121214;
     background-color: rgba(245, 245, 245, 0.904);
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 .jumbotron {
@@ -55,20 +55,38 @@ th {
     color: #29ABE2
 }
 
-#login-submit {
+@media screen and (max-width: 700px) {
+    #login-box {
+        color: #034242;
+        position: absolute;
+        top: 25%;
+        left: 10%;
+    }
 
+    #login-submit {
+        color: #034242;
+        border: 2px solid #034242;
+    }
+}
+
+@media screen and (min-width: 701px) {
+    #login-submit {
+        color: #29ABE2;
+        border: 2px solid #29ABE2;
+    }
+}
+
+#login-submit {
     width: 300px;
     height: 55px;
     font-size: 1.5em;
-    color: #29ABE2;
-    border: 2px solid #29ABE2
 }
 
 [id*="submit"] {
     background: none;
     color: #272B27;
     border: 1px solid #29ABE2;
-    border-radius: 8px; 
+    border-radius: 8px;
 }
 
 [id*="tab"] {
@@ -87,18 +105,27 @@ th {
 #morph1 {
     fill: #29ABE2;
 }
+
 #morph2 {
     fill: #034242;
 }
-/* #svg-one {
-    height: 1080px;
-} */
+
+#svg-one {
+    height: 100vh;
+}
+
 #svg-two {
     position: absolute;
     top: 0;
     left: 0;
-    /* height: 1080px; */
+    height: 100vh;
 }
+@media screen and (min-width: 1740px) {
+    #svg-two {
+        height: auto;
+    }
+}
+
 #welcome {
     position: relative;
     left: -1000;
