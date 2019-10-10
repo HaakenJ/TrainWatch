@@ -17,6 +17,7 @@ auth.onAuthStateChanged((user) => {
         $('#current-user').show();
         $('#sign-out-submit').show();
         console.log('logged in.');
+        console.log(user.displayName);
 
         let name = user.displayName;
         $('#username').text(name);
